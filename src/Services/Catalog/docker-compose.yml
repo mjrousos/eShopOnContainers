@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  catalog.api:
+    image: eshop/catalog.api
+    depends_on:
+      - sql.data
+    build:
+      context: ./Catalog.API
+      dockerfile: Dockerfile
+
+
+  sql.data:
+    image: microsoft/mssql-server-linux

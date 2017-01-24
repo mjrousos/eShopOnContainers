@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+      #- ExternalCatalogBaseUrl=http://13.88.8.119:5101   #Remote: VM Needs to have public access at 5105. 
+      - ExternalCatalogBaseUrl=http://10.0.75.1:5101    #Local: You need to open your local dev-machine firewall at range 5100-5105.  at range 5100-5105.
+    ports:
+      - "5101:5101"
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
