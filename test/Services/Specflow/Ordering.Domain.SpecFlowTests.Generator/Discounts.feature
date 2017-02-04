@@ -1,4 +1,4 @@
-﻿Feature: SpecFlowDiscounts
+﻿Feature: Discounts
 	Apply the right product discount to each line item of a given order
 
 @mytag

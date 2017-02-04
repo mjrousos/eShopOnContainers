@@ -6,7 +6,7 @@
     <ProjectGuid>{B6F3FE11-A80B-4F22-B27A-20A94E4EF8A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ordering.Domain.SpecFlowTests.Generator</RootNamespace>
+    <RootNamespace>Shopping.Domain.SpecFlowTests</RootNamespace>
     <AssemblyName>Ordering.Domain.SpecFlowTests.Generator</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -54,14 +54,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CheckoutSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpecFlowDiscountsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="SpecFlowDiscounts.feature" />
+    <Content Include="Discounts.feature" />
+    <Content Include="CheckOut.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

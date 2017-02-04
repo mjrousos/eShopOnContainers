@@ -6,7 +6,7 @@ using System.Linq;
 namespace Shopping.Domain.SpecFlowTests
 {
     [Binding]
-    public class SpecFlowDiscountsSteps
+    public class DiscountsSteps
     {
         private Order _order;
 

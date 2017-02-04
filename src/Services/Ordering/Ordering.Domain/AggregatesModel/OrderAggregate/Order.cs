@@ -1,5 +1,6 @@
 ﻿using Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.BuyerAggregate;
 using Microsoft.eShopOnContainers.Services.Ordering.Domain.Seedwork;
+using Microsoft.eShopOnContainers.Services.Ordering.Domain.SeedWork.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,6 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
 
         public Order(int buyerId, int paymentMethodId, Address address)
         {
-
             _buyerId = buyerId;
             _paymentMethodId = paymentMethodId;
             _orderStatusId = OrderStatus.InProcess.Id;
@@ -46,6 +46,12 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
             _orderItems = new HashSet<OrderItem>();
         }
 
+        public void CheckOut()
+        {
+            this.OrderStatus = OrderStatus.InProcess;
+            var domainEvent = new OrderCheckedOutEvent(OrderItems);
+            DomainEventBus.Instance.Publish<OrderCheckedOutEvent>( domainEvent );
+        }
 
         public void AddOrderItem(int productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)
         {
