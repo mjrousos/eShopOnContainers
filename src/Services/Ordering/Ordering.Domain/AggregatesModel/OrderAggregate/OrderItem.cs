@@ -11,10 +11,9 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
         private int _orderId;
         private decimal _unitPrice;
         private decimal _discount;
-        private int _units;
 
         public int ProductId { get; private set; }
-
+        public int Units { get; private set; }
 
         protected OrderItem() { }
 
@@ -31,11 +30,11 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
             }
 
             ProductId = productId;
+            Units = units;
 
             _productName = productName;
             _unitPrice = unitPrice;
             _discount = discount;
-            _units = units;
             _pictureUrl = PictureUrl;
         }
 
@@ -69,7 +68,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
                 throw new ArgumentException("Invalid units");
             }
 
-            _units += units;
+            Units += units;
         }
     }
 }
