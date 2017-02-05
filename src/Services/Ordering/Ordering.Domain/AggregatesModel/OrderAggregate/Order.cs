@@ -7,9 +7,10 @@ using System.Linq;
 
 namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.OrderAggregate
 {
+  
     public class Order
         : Entity
-    {
+    {        
         private string _street;
         private string _city;
         private string _state;
@@ -20,8 +21,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
         public Buyer Buyer { get; private set; }
         int _buyerId;
 
-        public OrderStatus OrderStatus { get; private set; }
-        int _orderStatusId;
+        public OrderStatusType OrderStatus { get; private set; }
 
         HashSet<OrderItem> _orderItems;
         public IEnumerable<OrderItem> OrderItems => _orderItems.ToList().AsEnumerable();
@@ -35,7 +35,6 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
         {
             _buyerId = buyerId;
             _paymentMethodId = paymentMethodId;
-            _orderStatusId = OrderStatus.InProcess.Id;
             _orderDate = DateTime.UtcNow;
             _street = address.Street;
             _city = address.City;
@@ -44,13 +43,14 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
             _zipCode = address.ZipCode;
 
             _orderItems = new HashSet<OrderItem>();
+            OrderStatus = OrderStatusType.Created;
         }
 
         public void CheckOut()
         {
-            this.OrderStatus = OrderStatus.InProcess;
             var domainEvent = new OrderCheckedOutEvent(OrderItems);
             DomainEventBus.Instance.Publish<OrderCheckedOutEvent>( domainEvent );
+            OrderStatus = OrderStatusType.CheckedOut;
         }
 
         public void AddOrderItem(int productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)

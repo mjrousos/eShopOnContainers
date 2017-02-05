@@ -75,7 +75,8 @@ namespace SpecFlow.GeneratedTests
             this.ScenarioSetup(scenarioInfo);
             testRunner.Given("An order with 2 units of a given product (id 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
             testRunner.When("I check out the order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-            testRunner.Then("a checkedOut event should be emited indicating the 2 units of product (id 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            testRunner.Then("a checkedOut event should be emited indicating that 2 units of product (id 1) are" +
+                    " pending to be processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
             this.ScenarioCleanup();
         }
     }

@@ -29,9 +29,9 @@ namespace Shopping.Domain.SpecFlowTests
         {
             _order.CheckOut();
         }
-        
-        [Then(@"a checkedOut event should be emited indicating the (.*) units of product \(id (.*)\)")]
-        public void ThenACheckedOutEventShouldBeEmitedIndicatingTheUnitsOfProductId(int units, int productId)
+
+        [Then(@"a checkedOut event should be emited indicating that (.*) units of product \(id (.*)\) are pending to be processed")]
+        public void ThenACheckedOutEventShouldBeEmitedIndicatingThatUnitsOfProductIdArePendingToBeProcessed(int units, int productId)
         {
             Assert.IsNotNull(receivedEvent);
             Assert.AreEqual("Order", receivedEvent.AggregateSource);
@@ -41,7 +41,7 @@ namespace Shopping.Domain.SpecFlowTests
                 Assert.AreEqual(productId, p.ProductId);
                 Assert.AreEqual(units, p.Units);
             }
-            Assert.AreEqual(_order.OrderStatus.Id, OrderStatus.InProcess.Id);
+            Assert.AreEqual(_order.OrderStatus, OrderStatusType.CheckedOut);
 
         }
 

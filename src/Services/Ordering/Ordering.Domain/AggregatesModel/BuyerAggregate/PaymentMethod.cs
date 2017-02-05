@@ -16,7 +16,6 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.B
         private int _cardTypeId;
         public CardType CardType { get; private set; }
 
-
         protected PaymentMethod() { }
 
         public PaymentMethod(int cardTypeId, string alias, string cardNumber, string securityNumber, string cardHolderName, DateTime expiration)

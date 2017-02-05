@@ -13,7 +13,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
         public int Units;     
     }
          
-    public class OrderCheckedOutEvent : DomainEventBase
+    public class OrderCheckedOutEvent : DomainEvent
     {
         public OrderCheckedOutEvent(IEnumerable<OrderItem> orderItems) : base("Order","1.0")
         {

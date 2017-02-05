@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.SeedWork.Events
 {
-    public abstract class DomainEventBase : IDomainEvent
+    public abstract class DomainEvent : IDomainEvent
     {
-        public DomainEventBase(string source, string version)
+        public DomainEvent(string source, string version)
         {
             AggregateSource = source;
             Version = version;

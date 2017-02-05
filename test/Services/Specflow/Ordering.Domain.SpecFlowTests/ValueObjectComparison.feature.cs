@@ -18,7 +18,7 @@ namespace SpecFlow.GeneratedTests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class DiscountsFeature
+    public partial class ValueObjectComparisonFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -27,7 +27,7 @@ namespace SpecFlow.GeneratedTests
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Discounts", "\tApply the right product discount to each line item of a given order", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ValueObjectComparison", "\tTwo ValueObjects are equals if same object or contain exact same values", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -42,9 +42,9 @@ namespace SpecFlow.GeneratedTests
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Discounts")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "ValueObjectComparison")))
             {
-                SpecFlow.GeneratedTests.DiscountsFeature.FeatureSetup(null);
+                SpecFlow.GeneratedTests.ValueObjectComparisonFeature.FeatureSetup(null);
             }
         }
         
@@ -66,17 +66,18 @@ namespace SpecFlow.GeneratedTests
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
 
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Discounts")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ValueObjectComparison")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
-        public virtual void ApplyTheHigherDiscountToAllTheLineItemsForASameProduct()
+        public virtual void CompareToValueObjects()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Apply the higher discount to all the line items for a same product", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare to value objects", new string[] {
                         "mytag"});
             this.ScenarioSetup(scenarioInfo);
-            testRunner.Given("An order with 2 units of a given product (id 1) with a discount of 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-            testRunner.When("I add a unit of this same product (id 1) but a higher discount of 20 is applied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-            testRunner.Then("all the units will have the higher discount of 20 applied for the given product (" +
-                    "id 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            testRunner.Given("An instance of an address value object with a given street, city , state, zipcode" +
+                    " and country", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.And("a second instance with the exact same values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            testRunner.When("I compare both instances", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.Then("the equality operator should return true", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
             this.ScenarioCleanup();
         }
     }

@@ -54,15 +54,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CheckoutSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Discounts.feature" />
-    <Content Include="CheckOut.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>
