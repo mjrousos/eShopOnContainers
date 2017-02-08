@@ -7,8 +7,8 @@
 
   "frameworks": {
     "net461":{} ,
-    "netstandard1.6.1": {
-      "imports": "dnxcore50"
-    }
+    //"netstandard1.6.1": {
+    //  "imports": "dnxcore50"
+    //}
   }
 }

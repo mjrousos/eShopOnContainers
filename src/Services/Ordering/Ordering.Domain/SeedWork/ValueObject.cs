@@ -8,7 +8,9 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.SeedWork
 {
   
     public abstract class ValueObject
-    {
+    {        
+        internal Guid Id { get; set; }
+
        internal abstract IEnumerable<object> GetComparisonValues();
 
         public override bool Equals(object obj)
